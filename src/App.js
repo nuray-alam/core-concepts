@@ -2,6 +2,15 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+const Person1 = {
+  name: 'Mahfuz',
+  job: 'Thelagari'
+};
+const personStyle = {
+  color: "red",
+  backgroundColor:'salmon'
+};
   return (
     <div className="App">
       <header className="App-header">
@@ -9,14 +18,9 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p className = "" style = {personStyle}>My first paragraph</p>
+        <p className = "" style = {personStyle}>Name: {Person1.name}</p>
+        <p className = "" style = {personStyle}>Job: {Person1.job}</p>
       </header>
     </div>
   );
