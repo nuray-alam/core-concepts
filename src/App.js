@@ -3,23 +3,45 @@ import './App.css';
 
 function App() {
 
+  const nayoks = ["Razzak", 'Salman', 'Jasim', 'Manna'];
+
   const products = [
     { name: "Photoshop", price: "$90.99" },
     { name: "Illustrator", price: "$60.99" },
     { name: "PDF Reader", price: "$6.99" }
   ];
 
+  const persons = [
+    {name: "Sakib Al Hasan", profession: "Cricketer"},
+    {name: 'Jalanta Alil', profession: 'Actor'},
+    {name: 'Imagin Dragons', profession: 'Music Band'}
+  ]
+
   return (
     <div className="App">
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <p>I'm React Person</p>
-        <Product product={products[0]}></Product>
+        <ul>
+          {
+            nayoks.map(nayok => <li>{nayok}</li>)
+          }
+        </ul>
+
+        {
+          products.map(product => <Product product = {product}></Product>)
+        }
+
+        {
+          persons.map(person => <Person person = {person}></Person>)
+        }
+
+        {/* <Product product={products[0]}></Product>
         <Product product = {products[1]}></Product>
-        <Product product = {products[2]}></Product>
-        <Person name="Sakib Al Hasan" profession="Cricketer"></Person>
+        <Product product = {products[2]}></Product> */}
+        {/* <Person name="Sakib Al Hasan" profession="Cricketer"></Person>
         <Person name="Jalanta Alil" profession="Actor"></Person>
-        <Person name="Imagine Dragons" profession="Music Band"></Person>
+        <Person name="Imagine Dragons" profession="Music Band"></Person> */}
       </header>
     </div>
   );
@@ -34,10 +56,11 @@ function Person(props) {
     backgroundColor: "#6495ed",
     color: "black"
   }
+  const {name, profession} = props.person;
   return (
     <div style={personStyle}>
-      <h1>Name: {props.name}</h1>
-      <h3>Profession: {props.profession}</h3>
+      <h1>Name: {name}</h1>
+      <h3>Profession: {profession}</h3>
     </div>
   )
 }
