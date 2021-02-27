@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
 
@@ -12,9 +13,9 @@ function App() {
   ];
 
   const persons = [
-    {name: "Sakib Al Hasan", profession: "Cricketer"},
-    {name: 'Jalanta Alil', profession: 'Actor'},
-    {name: 'Imagin Dragons', profession: 'Music Band'}
+    { name: "Sakib Al Hasan", profession: "Cricketer" },
+    { name: 'Jalanta Alil', profession: 'Actor' },
+    { name: 'Imagin Dragons', profession: 'Music Band' }
   ]
 
   return (
@@ -22,6 +23,8 @@ function App() {
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <p>I'm React Person</p>
+        <Count></Count>
+
         <ul>
           {
             nayoks.map(nayok => <li>{nayok}</li>)
@@ -29,11 +32,11 @@ function App() {
         </ul>
 
         {
-          products.map(product => <Product product = {product}></Product>)
+          products.map(product => <Product product={product}></Product>)
         }
 
         {
-          persons.map(person => <Person person = {person}></Person>)
+          persons.map(person => <Person person={person}></Person>)
         }
 
         {/* <Product product={products[0]}></Product>
@@ -56,7 +59,7 @@ function Person(props) {
     backgroundColor: "#6495ed",
     color: "black"
   }
-  const {name, profession} = props.person;
+  const { name, profession } = props.person;
   return (
     <div style={personStyle}>
       <h1>Name: {name}</h1>
@@ -76,12 +79,21 @@ function Product(props) {
     width: '200px',
     float: 'left'
   }
- const {name, price}  = props.product;
+  const { name, price } = props.product;
   return (
     <div style={productStyle}>
       <h2>{name}</h2>
       <h5>{price}</h5>
       <button>Buy Now</button>
+    </div>
+  )
+}
+
+function Count(props) {
+  const [count, setCount] = useState(10);
+  return (
+    <div>
+      <h1>Count: {count}</h1>
     </div>
   )
 }
